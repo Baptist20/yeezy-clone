@@ -159,7 +159,11 @@ export default function ProductGrid({ products }: Props) {
             >
               <div className="aspect-square rounded-md overflow-hidden">
                 <Image
-                  src={`${pantheonUrl}/${product.images[0].src || "/placeholder.png"}`}
+                  src={
+                    product.images?.[0]?.src
+                      ? `${pantheonUrl}${product.images[0].src}`
+                      : "/placeholder.png"
+                  }
                   width={300}
                   height={300}
                   alt={product.name}
