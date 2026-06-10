@@ -19,7 +19,6 @@ type Props = {
   products: any[];
 };
 export default function ProductGrid({ products }: Props) {
-  const pantheonUrl = "https://dev-yeezy-by-baptist.pantheonsite.io";
   const [toggle, setToggle] = useState(false);
   const {
     isOpen,
@@ -159,11 +158,7 @@ export default function ProductGrid({ products }: Props) {
             >
               <div className="aspect-square rounded-md overflow-hidden">
                 <Image
-                  src={
-                    product.images?.[0]?.src
-                      ? `${pantheonUrl}${product.images[0].src}`
-                      : "/placeholder.png"
-                  }
+                  src={product.images[0].src || "/placeholder.svg"}
                   width={300}
                   height={300}
                   alt={product.name}
